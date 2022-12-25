@@ -1,0 +1,79 @@
+task#01
+1----------
+printenv
+env
+printenv PWD
+env | grep PWD
+2-------------
+printenv > a
+export Name="Umair"
+printenv b
+diff a > b
+----------------
+task#02
+gcc -o child myprintenv.c
+gcc -p parent mypintenv.c
+./child > child.txt
+./parent > parent.txt
+diff child.txt parent.txt
+-------------------------
+task#03
+gcc -o myenv myenv.c
+gcc -o myenv2 myenv.c
+./myenv > myenv.txt
+./myenv2 > myenv2.txt
+diff myenv.txt myenv2.txt
+--------------------------
+task#04
+gcc -o task_04 task_04.c
+./task_04
+----------------------
+task#05
+gcc -o task_05 task_05.c
+sudo chown root task_05
+sudo chmod 4755 task_05
+ls -l task_05
+export PATH=$PATH:task_05
+export LD_LIBRARY_PATH=can not edit this ENV
+export myName=Umair
+./task_05
+./task_05 | grep myName
+------------------------
+task#06
+gcc -o task_06 task_06.c
+ ./task_06
+/bin/ls
+nano ls.c
+gcc -o ls ls.c
+./ls
+sudo chown root ls
+sudo chmod 4755 ls
+ls -l ls
+pwd
+printenv PATH
+export PATH=/home/seed/Desktop/env\ \&\ set-uid\ /:$PATH
+printenv PATH
+ls
+--------------------------
+task#07
+nano mylib.c
+gcc -fPIC -g -c mylib.c
+gcc -shared -o mylib.so.1 mylib.o -lc
+export LD_PRELOAD=./mylib.so.1
+nano myprog.c
+gcc -o myprog myprog.c 
+./myprog
+-------------------------
+task#08
+nano task_08.c
+gcc -o task_08 task_08.c
+sudo chown root task_08
+sudo chmod 4755 task_08
+gedit task_08.txt
+./task_08 task_08
+./task_08 "task_08.txt; rm -rf task_08.txt"
+
+
+
+
+
